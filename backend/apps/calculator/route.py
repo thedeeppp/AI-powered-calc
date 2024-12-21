@@ -6,8 +6,9 @@ from schema import ImageData
 from PIL import Image
 
 router = APIRouter()
+# logger = logging.getLogger(__name__)
 
-@router.post('')
+@router.post('/')
 async def run(data: ImageData):
     image_data = base64.b64decode(data.image.split(",")[1])  # Assumes data:image/png;base64,<data>
     image_bytes = BytesIO(image_data)
